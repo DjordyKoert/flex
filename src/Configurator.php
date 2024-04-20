@@ -45,6 +45,7 @@ class Configurator
             'gitignore' => Configurator\GitignoreConfigurator::class,
             'dockerfile' => Configurator\DockerfileConfigurator::class,
             'docker-compose' => Configurator\DockerComposeConfigurator::class,
+            'importmap' => Configurator\ImportMapConfigurator::class,
         ];
         $this->postInstallConfigurators = [
             'add-lines' => Configurator\AddLinesConfigurator::class,
