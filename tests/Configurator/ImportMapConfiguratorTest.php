@@ -61,22 +61,30 @@ class ImportMapConfiguratorTest extends TestCase
         yield 'new importmap' => [
             null,
             [
-                'bootstrap' => [
-                    'version' => '5.3.0'
+                'bootstrap/dist/css/bootstrap.min.css' => [
+                    'version' => '5.3.2',
+                    'type' => 'css',
                 ],
-                'jquery' => [
-                    'version' => '3.6.0'
+                'tom-select' => [
+                    'version' => '2.3.1',
+                ],
+                'clipboard' => [
+                    'version' => '2.0.11',
                 ],
             ],
             <<<EOF
 <?php
 
 return [
-    'bootstrap' => [
-        'version' => '5.3.0',
+    'bootstrap/dist/css/bootstrap.min.css' => [
+        'version' => '5.3.2',
+        'type' => 'css',
     ],
-    'jquery' => [
-        'version' => '3.6.0',
+    'tom-select' => [
+        'version' => '2.3.1',
+    ],
+    'clipboard' => [
+        'version' => '2.0.11',
     ],
 ];
 
@@ -271,6 +279,10 @@ EOF
                 ],
             ],
             [
+                'bootstrap/dist/css/bootstrap.min.css' => [
+                    'version' => '5.3.0',
+                    'type' => 'css',
+                ],
                 'jquery' => [
                     'version' => '4.2.2'
                 ],
@@ -316,6 +328,10 @@ return [
     ],
     'jquery' => [
         'version' => '4.2.2',
+    ],
+    'bootstrap/dist/css/bootstrap.min.css' => [
+        'version' => '5.3.0',
+        'type' => 'css',
     ],
     'highlight.js/lib/core' => [
         'version' => '11.9.0',
