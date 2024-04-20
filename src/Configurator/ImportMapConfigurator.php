@@ -11,6 +11,7 @@
 
 namespace Symfony\Flex\Configurator;
 
+use Composer\InstalledVersions;
 use Symfony\Flex\Lock;
 use Symfony\Flex\Recipe;
 use Symfony\Flex\Update\RecipeUpdate;
@@ -21,6 +22,12 @@ class ImportMapConfigurator extends AbstractConfigurator
 
     public function configure(Recipe $recipe, $config, Lock $lock, array $options = [])
     {
+        if (!InstalledVersions::isInstalled('symfony/asset-mapper')) {
+            $this->write('symfony/asset-mapper is not installed, skipping importmap configuration');
+
+            return;
+        }
+
         $this->write('Adding importmap entries');
         $importMapContent = $this->configureImportMap($config);
 
